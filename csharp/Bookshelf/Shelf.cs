@@ -20,7 +20,10 @@ namespace Bookshelf
         }
         public void add(String bookTitle)
         {
-            contents.Add(bookTitle);
+            if (bookTitle.Trim().Length > 0)
+            {
+                contents.Add(bookTitle);
+            }
         }
         public void remove(String bookTitle)
         {
