@@ -18,5 +18,12 @@ namespace Tests
             Assert.AreEqual(shelf.getContentCount(), 0);
 
         }
+        [Test]
+        public void TestShelfHasItemAfterAdd()
+        {
+            Shelf shelf = new Shelf();
+            shelf.add("Book1");
+            Assert.AreEqual(shelf.getContentCount(), 1);
+        }
     }
 }
