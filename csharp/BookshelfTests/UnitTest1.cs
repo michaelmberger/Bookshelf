@@ -12,10 +12,10 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void TestShelfIsEmptyOnCreation()
         {
-            Shelf bs = new Shelf();
-            Assert.IsFalse(bs.returnFalse());
+            Shelf shelf = new Shelf();
+            Assert.AreEqual(shelf.getContentCount(), 0);
 
         }
     }

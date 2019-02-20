@@ -7,5 +7,8 @@ namespace Bookshelf
         public bool returnFalse(){
             return false;
         }
+        public int getContentCount(){
+            return 0;
+        }
     }
 }
