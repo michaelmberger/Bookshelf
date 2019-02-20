@@ -22,5 +22,9 @@ namespace Bookshelf
         {
             contents.Add(bookTitle);
         }
+        public void remove(String bookTitle)
+        {
+           contents.Remove(bookTitle); 
+        }
     }
 }
