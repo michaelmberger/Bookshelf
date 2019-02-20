@@ -26,6 +26,13 @@ namespace Tests
             Assert.AreEqual(shelf.getContentCount(), 1);
         }
         [Test]
+        public void TestShelfDoesntAllowBlankTitles()
+        {
+            Shelf shelf = new Shelf();
+            shelf.add("");
+            Assert.AreEqual(shelf.getContentCount(), 0);
+        }
+        [Test]
         public void TestShelfHasNoItmesAfterRemoval()
         {
             Shelf shelf = new Shelf();
@@ -33,5 +40,15 @@ namespace Tests
             shelf.remove("Book1");
             Assert.AreEqual(shelf.getContentCount(), 0);
         }
+        [Test]
+        public void TestShelfWontAllowRemovalOfNonexistantBook()
+        {
+            Shelf shelf = new Shelf();
+            shelf.add("Book1");
+            shelf.remove("Book2");
+            Assert.AreEqual(shelf.getContentCount(), 1);
+        }
+
+
     }
 }
