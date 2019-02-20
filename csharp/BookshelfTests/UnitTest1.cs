@@ -48,7 +48,13 @@ namespace Tests
             shelf.remove("Book2");
             Assert.AreEqual(shelf.getContentCount(), 1);
         }
-
+        [Test]
+        public void TestShelfAcceptsBookObject()
+        {
+            Shelf shelf = new Shelf();
+            shelf.add(new Book());
+            Assert.AreEqual(shelf.getContentCount(), 1);
+        }
 
     }
 }

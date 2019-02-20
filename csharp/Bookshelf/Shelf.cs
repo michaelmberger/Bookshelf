@@ -25,6 +25,10 @@ namespace Bookshelf
                 contents.Add(bookTitle);
             }
         }
+        public void add(Book book)
+        {
+            
+        }
         public void remove(String bookTitle)
         {
            contents.Remove(bookTitle); 
