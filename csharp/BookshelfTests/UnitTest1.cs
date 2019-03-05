@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Bookshelf;
 using System;
+using System.Collections;
 
 namespace Tests
 {
@@ -98,20 +99,21 @@ namespace Tests
             Assert.AreNotEqual(b1, b2);
         }
         [Test]
-        public void TestGetShelfContents()
+        public void TestGetEnumerator()
         {
             Shelf s = new Shelf();
-            s.add(new Book("Book1"));
-            Book first = s.getFirst();
-            Assert.IsNotNull(first);
+            Assert.IsNotNull(s.GetEnumerator());
         }
         [Test]
-        public void TestGetBookFromEmptyShelf()
+        public void TestGetBookArray()
         {
-            Shelf s = new Shelf();
-            var ex = Assert.Throws<EmptyCollectionException>(() => s.getFirst());
-            Assert.AreEqual(ex.Message, "Collection is empty");   
+            Shelf  s = new Shelf();
+            Book b = new Book("Book1");
+            s.add(b);
+            Book[] books = s.getContents();
+            Assert.IsNotEmpty(books);
         }
+         
 
     }
 }

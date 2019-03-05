@@ -8,7 +8,8 @@ namespace Bookshelf
         {
             Console.WriteLine("Hello World!");
             Shelf s = new Shelf();
-            Console.WriteLine(s.returnFalse());
+            s.add(new Book("Gulivers travels"));
+            Console.WriteLine();
         }
     }
 }

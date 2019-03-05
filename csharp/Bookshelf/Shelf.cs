@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Bookshelf
 {
-    public class Shelf
+    public class Shelf : IEnumerable
     {
         private List<Book> contents;
         public Shelf()
@@ -34,14 +34,14 @@ namespace Bookshelf
         {
             contents.Remove(new Book(bookTitle));
         }
-        public Book getFirst()
+        public IEnumerator GetEnumerator()
         {
-            var enumerator = contents.GetEnumerator();
-            bool hasNext = enumerator.MoveNext();
-            if (hasNext)
-                return enumerator.Current;
-            else 
-                throw new EmptyCollectionException("Collection is empty");
+            return contents.GetEnumerator();
         }
+        public Book[] getContents()
+        {
+            return contents.ToArray();
+        }
+
     }
 }
