@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Bookshelf
 {
@@ -31,7 +32,16 @@ namespace Bookshelf
         }
         public void remove(String bookTitle)
         {
-           contents.Remove(new Book(bookTitle)); 
+            contents.Remove(new Book(bookTitle));
+        }
+        public Book getFirst()
+        {
+            var enumerator = contents.GetEnumerator();
+            bool hasNext = enumerator.MoveNext();
+            if (hasNext)
+                return enumerator.Current;
+            else 
+                throw new EmptyCollectionException("Collection is empty");
         }
     }
 }

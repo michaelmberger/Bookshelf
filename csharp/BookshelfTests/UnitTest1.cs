@@ -9,7 +9,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-        
+
         }
 
         [Test]
@@ -73,7 +73,7 @@ namespace Tests
         public void TestCreateBookWithBadISBN()
         {
             Book b = new Book();
-            
+
             var ex = Assert.Throws<ArgumentException>(() => b.code = "XX");
             Assert.AreEqual(ex.Message, "The ISBN cannot be null or empty and must contain at least 1 number.");
 
@@ -96,6 +96,21 @@ namespace Tests
             Assert.AreEqual(b1, b2);
             b1.code = "4567";
             Assert.AreNotEqual(b1, b2);
+        }
+        [Test]
+        public void TestGetShelfContents()
+        {
+            Shelf s = new Shelf();
+            s.add(new Book("Book1"));
+            Book first = s.getFirst();
+            Assert.IsNotNull(first);
+        }
+        [Test]
+        public void TestGetBookFromEmptyShelf()
+        {
+            Shelf s = new Shelf();
+            var ex = Assert.Throws<EmptyCollectionException>(() => s.getFirst());
+            Assert.AreEqual(ex.Message, "Collection is empty");   
         }
 
     }

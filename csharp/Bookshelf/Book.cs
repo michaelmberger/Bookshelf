@@ -85,5 +85,9 @@ namespace Bookshelf
             }
             return base.GetHashCode();
         }
+        public String toString()
+        {
+            return this.title + ' ' + this.ISBN;
+        }
     }
 }
