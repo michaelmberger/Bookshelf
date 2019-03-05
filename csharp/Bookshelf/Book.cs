@@ -85,7 +85,7 @@ namespace Bookshelf
             }
             return base.GetHashCode();
         }
-        public String toString()
+        public override String ToString()
         {
             return this.title + ' ' + this.ISBN;
         }

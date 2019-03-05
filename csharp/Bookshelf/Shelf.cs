@@ -11,26 +11,26 @@ namespace Bookshelf
         {
             contents = new List<Book>();
         }
-        public bool returnFalse()
+        public bool ReturnFalse()
         {
             return false;
         }
-        public int getContentCount()
+        public int GetContentCount()
         {
             return contents.Count;
         }
-        public void add(String bookTitle)
+        public void Add(String bookTitle)
         {
             if (bookTitle.Trim().Length > 0)
             {
                 contents.Add(new Book(bookTitle));
             }
         }
-        public void add(Book book)
+        public void Add(Book book)
         {
             contents.Add(book);
         }
-        public void remove(String bookTitle)
+        public void Remove(String bookTitle)
         {
             contents.Remove(new Book(bookTitle));
         }
@@ -38,7 +38,7 @@ namespace Bookshelf
         {
             return contents.GetEnumerator();
         }
-        public Book[] getContents()
+        public Book[] GetContents()
         {
             return contents.ToArray();
         }

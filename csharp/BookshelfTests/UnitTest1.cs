@@ -17,45 +17,45 @@ namespace Tests
         public void TestShelfIsEmptyOnCreation()
         {
             Shelf shelf = new Shelf();
-            Assert.AreEqual(shelf.getContentCount(), 0);
+            Assert.AreEqual(shelf.GetContentCount(), 0);
 
         }
         [Test]
         public void TestShelfHasItemAfterAdd()
         {
             Shelf shelf = new Shelf();
-            shelf.add("Book1");
-            Assert.AreEqual(shelf.getContentCount(), 1);
+            shelf.Add("Book1");
+            Assert.AreEqual(shelf.GetContentCount(), 1);
         }
         [Test]
         public void TestShelfDoesntAllowBlankTitles()
         {
             Shelf shelf = new Shelf();
-            shelf.add("");
-            Assert.AreEqual(shelf.getContentCount(), 0);
+            shelf.Add("");
+            Assert.AreEqual(shelf.GetContentCount(), 0);
         }
         [Test]
         public void TestShelfHasNoItmesAfterRemoval()
         {
             Shelf shelf = new Shelf();
-            shelf.add("Book1");
-            shelf.remove("Book1");
-            Assert.AreEqual(shelf.getContentCount(), 0);
+            shelf.Add("Book1");
+            shelf.Remove("Book1");
+            Assert.AreEqual(shelf.GetContentCount(), 0);
         }
         [Test]
         public void TestShelfWontAllowRemovalOfNonexistantBook()
         {
             Shelf shelf = new Shelf();
-            shelf.add("Book1");
-            shelf.remove("Book2");
-            Assert.AreEqual(shelf.getContentCount(), 1);
+            shelf.Add("Book1");
+            shelf.Remove("Book2");
+            Assert.AreEqual(shelf.GetContentCount(), 1);
         }
         [Test]
         public void TestShelfAcceptsBookObject()
         {
             Shelf shelf = new Shelf();
-            shelf.add(new Book());
-            Assert.AreEqual(shelf.getContentCount(), 1);
+            shelf.Add(new Book());
+            Assert.AreEqual(shelf.GetContentCount(), 1);
         }
         [Test]
         public void TestCreateBookHashCode()
@@ -109,11 +109,9 @@ namespace Tests
         {
             Shelf  s = new Shelf();
             Book b = new Book("Book1");
-            s.add(b);
-            Book[] books = s.getContents();
+            s.Add(b);
+            Book[] books = s.GetContents();
             Assert.IsNotEmpty(books);
-        }
-         
-
+        }    
     }
 }
