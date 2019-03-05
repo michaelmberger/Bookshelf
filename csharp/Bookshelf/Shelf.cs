@@ -5,10 +5,10 @@ namespace Bookshelf
 {
     public class Shelf
     {
-        private List<String> contents;
+        private List<Book> contents;
         public Shelf()
         {
-            contents = new List<String>();
+            contents = new List<Book>();
         }
         public bool returnFalse()
         {
@@ -22,16 +22,16 @@ namespace Bookshelf
         {
             if (bookTitle.Trim().Length > 0)
             {
-                contents.Add(bookTitle);
+                contents.Add(new Book(bookTitle));
             }
         }
         public void add(Book book)
         {
-            
+            contents.Add(book);
         }
         public void remove(String bookTitle)
         {
-           contents.Remove(bookTitle); 
+           contents.Remove(new Book(bookTitle)); 
         }
     }
 }
