@@ -1,0 +1,6 @@
+[package]
+name = "bookshelf_cli"
+version = "0.1.0"
+authors = ["Michael <michaelmberger@gmail.com>"]
+
+[dependencies]
