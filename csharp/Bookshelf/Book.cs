@@ -7,6 +7,9 @@ namespace Bookshelf
     {
         private String name;
         private String ISBN;
+        /*
+        * We check that when the title is explicitly set that it is not null or empty.
+        */
         public String title
         {
             get {return this.name;} 
@@ -17,6 +20,9 @@ namespace Bookshelf
                     this.name = value;
                 }
         }
+        /*
+        * We check that when the ISBN is explicitly set that it is not not null or empty
+        */
         public String code
         {
             get {return this.ISBN;} 
@@ -29,13 +35,19 @@ namespace Bookshelf
             }
         }
         public String author {get; set;}
-
-        public Book()
+        /*
+        * We allow the creation of empty book objects.
+         */
+        private Book()
         {
             name = "";
         }
         public Book(String title)
         {
+             if (String.IsNullOrEmpty(title))
+             {
+                    throw new ArgumentException("Book title must have at least 1 character.");
+             }
             name = title;
         }
 
@@ -66,17 +78,17 @@ namespace Bookshelf
             if (this.ISBN != null)
             {
                 // strip all characters that aren't numbers
-                String numbericString = Regex.Replace(this.ISBN, "[^0-9]", "");
+                String numericString = Regex.Replace(this.ISBN, "[^0-9]", "");
                 // must be more than 1 and less than 2,147,483,647. Using 9 digits for saftey
-                if (numbericString.Length > 0 && numbericString.Length <= 9)
+                if (numericString.Length > 0 && numericString.Length <= 9)
                 {
-                    return Int32.Parse(numbericString);
+                    return Int32.Parse(numericString);
                 }
                 else
                 {
-                    if (numbericString.Length > 9)
+                    if (numericString.Length > 9)
                     {
-                        return Int32.Parse(numbericString.Substring(0, 10));
+                        return Int32.Parse(numericString.Substring(0, 10));
                     } else
                     {
                         this.name.GetHashCode();

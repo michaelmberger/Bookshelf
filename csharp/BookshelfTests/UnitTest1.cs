@@ -54,26 +54,26 @@ namespace Tests
         public void TestShelfAcceptsBookObject()
         {
             Shelf shelf = new Shelf();
-            shelf.Add(new Book());
+            shelf.Add(new Book("Example"));
             Assert.AreEqual(shelf.GetContentCount(), 1);
         }
         [Test]
         public void TestCreateBookHashCode()
         {
-            Book b = new Book();
+            Book b = new Book("Example");
             Assert.GreaterOrEqual(b.GetHashCode(), 0);
         }
         [Test]
         public void TestCreateBookWithISBN()
         {
-            Book b = new Book();
+            Book b = new Book("Example");
             b.code = "1234-567-890";
             Assert.AreEqual(1234567890, b.GetHashCode());
         }
         [Test]
         public void TestCreateBookWithBadISBN()
         {
-            Book b = new Book();
+            Book b = new Book("Example");
 
             var ex = Assert.Throws<ArgumentException>(() => b.code = "XX");
             Assert.AreEqual(ex.Message, "The ISBN cannot be null or empty and must contain at least 1 number.");
@@ -82,7 +82,7 @@ namespace Tests
         [Test]
         public void TestCreateBookwithBadTitle()
         {
-            Book b = new Book();
+            Book b = new Book("Example");
             var ex = Assert.Throws<ArgumentException>(() => b.title = "");
             Assert.AreEqual(ex.Message, "Book title must have at least 1 character.");
         }

@@ -11,10 +11,6 @@ namespace Bookshelf
         {
             contents = new List<Book>();
         }
-        public bool ReturnFalse()
-        {
-            return false;
-        }
         public int GetContentCount()
         {
             return contents.Count;
