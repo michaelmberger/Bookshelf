@@ -36,7 +36,7 @@ namespace Bookshelf
         }
         public String author {get; set;}
         /*
-        * We allow the creation of empty book objects.
+        * We don't allow the creation of empty book objects.
          */
         private Book()
         {
