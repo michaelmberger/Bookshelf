@@ -50,7 +50,8 @@ namespace Bookshelf
         static void AddABook()
         {
             bool acceptable = false;
-            Book b = new Book();
+            // Give our book a default name. We will have to give it a vaild name later.
+            Book b = new Book("NULL");
             while (!acceptable)
             {
                 Console.WriteLine("Enter the book title");
